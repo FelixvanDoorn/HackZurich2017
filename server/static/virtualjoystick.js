@@ -1,0 +1,1 @@
+../../interface/app/static/virtualjoystick.js

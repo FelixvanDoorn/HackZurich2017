@@ -9,6 +9,7 @@ import cv2
 import logging, logging.handlers
 
 from capture import Capture
+from actuation import Actuation
 from server import *
 
 QUEUE_MAXSIZE = 10
@@ -31,8 +32,7 @@ app.pre_queue = Queue(maxsize=QUEUE_MAXSIZE)
 original_sigint_handler = signal.signal(signal.SIGINT, signal.SIG_IGN)
 
 app.capture_th = Capture(app.pre_queue)
-
-app.capture_th.setDevice("video0")
+app.actuation = Actuation()
     
 # Launch threads
 app.capture_th.start()
