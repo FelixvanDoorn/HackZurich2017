@@ -28,7 +28,7 @@ var sendDriveData = function(joystick)
     }
 
     console.log("LOGLOG"+joystick+ " " + posx + " " + posy)
-    $.post('/dataDrive', {throttle: 0, angle : 0}, function() {
+    $.post('/commands', {throttle: 0, angle : 0}, function() {
         console.log("dataDrive done")
     })
 
