@@ -13,7 +13,7 @@ var sendDriveData = function(manager)
     }
     console.log("LOGLOG"+nipple+ " " + xpos + " " + ypos )
     $.post('/dataDrive', {throttle: ypos, angle : xpos}, function() {
-        console.log("dataDrive")
+        console.log("dataDrive done")
     })
 
 }
@@ -23,7 +23,9 @@ $(document).ready(function(){
     
     var options = {
         color : "Blue",          // distance to recycle previous joystick in
-        fadeTime : 0
+        fadeTime : 0,
+        mode: 'dynamic',
+        position: {left: '50%', top: '50%'}
     };
    
     var manager = nipplejs.create(options);
