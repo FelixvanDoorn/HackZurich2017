@@ -1,4 +1,8 @@
 
+prevposx = 0
+prevposy = 0
+
+
 var sendDriveData = function(joystick)
 {
 
@@ -12,14 +16,14 @@ var sendDriveData = function(joystick)
     //     var ypos = -nipple.frontPosition.y*2/nipple.options.size
     // }
 
-    var posx = joystick.deltaX()/5
+    var posx = joystick.deltaX()/50
     if(posx > 1){
         posx = 1
     }
     if(posx < -1){
         posx = -1
     }
-    var posy = joystick.deltaY()/5
+    var posy = joystick.deltaY()/50
     if(posy > 1){
         posy = 1
     }
@@ -27,10 +31,15 @@ var sendDriveData = function(joystick)
         posy = -1
     }
 
-    console.log("LOGLOG"+joystick+ " " + posx + " " + posy)
-    $.post('/commands', {throttle: 0, angle : 0}, function() {
-        console.log("dataDrive done")
-    })
+
+    if( posx != prevposx || posy != prevposy ){
+        console.log("LOGLOG"+joystick+ " " + posx + " " + posy)
+        prevposx = posx
+        prevposy = posy
+        $.post('/commands', {throttle: 0, angle : 0}, function() {
+            console.log("dataDrive done")
+        })
+    }
 
 }
 
