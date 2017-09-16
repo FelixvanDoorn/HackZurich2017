@@ -36,7 +36,7 @@ var sendDriveData = function(joystick)
         console.log("LOGLOG"+joystick+ " " + posx + " " + posy)
         prevposx = posx
         prevposy = posy
-        $.post('/commands', {throttle: 0, angle : 0}, function() {
+        $.post('/commands', {throttle: posy, angle : posx}, function() {
             console.log("dataDrive done")
         })
     }

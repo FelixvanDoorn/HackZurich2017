@@ -1,0 +1,1 @@
+../../interface/app/static/amazingstuff.js
