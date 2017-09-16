@@ -1,9 +1,9 @@
 <html>
   <head>
     {% if title %}
-    <title>{{ title }} - microblog</title>
+    <title>Dude, where's my car going?</title>
     {% else %}
-    <title>microblog</title>
+    <title>Dude, where's my car going?</title>
     {% endif %}
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,15 +13,58 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">  
+<script src="../static/virtualjoystick.js"></script>
+<script src="../static/amazingstuff.js"></script>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+<style>
+#videofeed {
+  background-color: #FFF; 
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+#imgcontainer {
+  background-color: #333; 
+  display: block;
+  width:100%;
+  height: 100%;
+}
+</style>
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-  <body>
-    <div>Microblog: <a href="/index">Home</a></div>
-    <div class="container">
-      <h1>My First Bootstrap Page</h1>
-      <p>This is some text.</p> 
+  <body style="background-color: #333 !important;">
+    <!-- <div class="container">
+      <h1>Dude where's my car going?</h1>
+      <p>Use the button to drive the car!</p>
+        <script>
+            var options = {
+                color : "Blue",
+                mode: "Dynamic"// distance to recycle previous joystick in
+                                    // 'semi' mode
+};
+            var manager = nipplejs.create(options);
+
+        </script>
     </div>
-    <hr>
-    {% block content %}{% endblock %}
+  
+    <hr> -->
+
+    <div class="vertical-center"> <!-- 
+          ^--- Added class  -->
+        <div id="imgcontainer">
+            <img src="http://172.30.5.128:5000/video_feed" id ="videofeed">
+        </div>
+    </div>
+   
+    
   </body>
+<footer>
+    <link rel="stylesheet" href="../static/styles.css" ></footer>
+</footer>
 </html>
